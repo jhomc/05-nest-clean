@@ -1,9 +1,10 @@
 import { Module } from '@nestjs/common'
-import { PrismaService } from './prisma/prisma.service'
+
 import { ConfigModule } from '@nestjs/config'
 import { envSchema } from './env'
 import { AuthModule } from './auth/auth.module'
 import { HttpModule } from './http/http.module'
+import { DatabaseModule } from './database/database.module'
 
 @Module({
   imports: [
@@ -13,7 +14,8 @@ import { HttpModule } from './http/http.module'
     }),
     AuthModule,
     HttpModule,
+    DatabaseModule,
   ],
-  providers: [PrismaService],
+  providers: [],
 })
 export class AppModule {}
